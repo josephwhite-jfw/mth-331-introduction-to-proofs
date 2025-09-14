@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+
+\title{MTH 331 — Homework \#2 (Rough Draft)}
+\author{Joe White}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 2: Implication is not associative}
+
+We want to compare the statements
+\[
+P \implies (Q \implies R) \quad \text{and} \quad (P \implies Q) \implies R.
+\]
+
+\subsection*{Truth tables}
+Here is the beginning of the truth table for both statements. Each row corresponds to one choice of truth values for $P$, $Q$, and $R$.
+
+\begin{center}
+\begin{tabular}{|c|c|c||c|c|}
+\hline
+$P$ & $Q$ & $R$ & $P \implies (Q \implies R)$ & $(P \implies Q) \implies R$ \\
+\hline
+T & T & T & T & T \\
+T & T & F & F & F \\
+T & F & T & T & T \\
+T & F & F & T & F \\
+F & T & T & T & T \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Explanation in words}
+The statement $P \implies (Q \implies R)$ means that if $P$ is true, then we also need that $Q \implies R$ is true. This is the same as saying “if $P$ and $Q$ are both true, then $R$ must be true.” That is why $P \implies (Q \implies R)$ is logically equivalent to $(P \land Q) \implies R$.
+
+An example in plain English: Let $P$ be “it is raining,” let $Q$ be “I have an umbrella,” and let $R$ be “I will stay dry.” The statement $P \implies (Q \implies R)$ means “if it is raining, then if I have an umbrella I will stay dry.” This is the same as saying “if it is raining and I have an umbrella, then I will stay dry.”
+
+\end{document}
