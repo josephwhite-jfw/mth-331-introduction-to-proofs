@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{array}
+
+\title{MTH 331 — Homework \#3 Draft}
+\author{Joe White}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% =========================================================
+\section*{Exercise 1: Slogans, logical form, and inference rules}
+
+\paragraph{Orville Redenbacher slogan.}
+Let $P$ mean “you will like it better.” Let $Q$ mean “my name is Orville Redenbacher.”  
+The slogan
+\[
+\text{``You will like it better or my name is not Orville Redenbacher.''}
+\]
+has logical form
+\[
+P \lor \neg Q.
+\]
+
+If the slogan is true and the speaker’s name really is Orville Redenbacher, then $Q$ is true. From $Q$ and $P\lor\neg Q$ we can conclude $P$.
+
+\medskip
+\noindent\textbf{Inference rule.}
+\[
+\frac{P\lor\neg Q \quad\quad Q}{P}
+\]
+
+This works because $P\lor\neg Q$ is equivalent to $Q\Rightarrow P$. With $Q$ true, modus ponens lets us conclude $P$.
+
+\medskip
+\noindent\textbf{Truth table check.}  
+In the rows where both premises are true, $P$ is also true.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|c|c||c|c||c|}
+\hline
+$P$ & $Q$ & $\neg Q$ & $P\lor\neg Q$ & Both premises true? $\Rightarrow P$ \\
+\hline
+T & T & F & T & Yes, $P$ is T \\
+F & T & F & F & No \\
+T & F & T & T & No \\
+F & F & T & T & No \\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{As a conditional.}
+Since $\neg Q \lor P$ is equivalent to $Q \Rightarrow P$, the slogan can also be written as
+\[
+Q \Rightarrow P.
+\]
+With $Q$ true, modus ponens again gives $P$.
+
+\paragraph{Bumper sticker.}
+“If you’re not outraged, you’re not paying attention.”  
+Let $P$ mean “you are paying attention.” Let $Q$ mean “you are outraged.”  
+Logical form:
+\[
+\neg Q \Rightarrow \neg P.
+\]
+The contrapositive is $P \Rightarrow Q$, meaning if you are paying attention then you are outraged.
+
+\paragraph{Why word it this way.}
+The original versions sound sharper. The Orville slogan sounds confident, and the bumper sticker is provocative. The simpler conditionals are logically the same but the given wording is more attention-grabbing.
+
+\bigskip
+
+% =========================================================
+\section*{Exercise 3: Parity statements with three integers}
+
+Assume $m,n,r\in\mathbb{Z}$. An integer is even if it is $2k$ for some $k$, and odd if it is $2k+1$.
+
+\subsection*{(1) If $m,n,r$ are all odd then $m+n+r$ is odd. \,\,\textit{True.}}
+Write $m=2a+1$, $n=2b+1$, $r=2c+1$. Then
+\[
+m+n+r = (2a+1)+(2b+1)+(2c+1) = 2(a+b+c+1)+1,
+\]
+which is odd.
+
+\subsection*{(2) If $m+n+r$ is odd then $m,n,r$ are all odd. \,\,\textit{False.}}
+Example: $m=2$, $n=2$, $r=1$. Then $m+n+r=5$ is odd, but $m$ and $n$ are even.
+
+\subsection*{(3) If at least one of $m,n,r$ is odd then $m+n+r$ is odd. \,\,\textit{False.}}
+Example: $m=1$, $n=1$, $r=2$. At least one number is odd, but $m+n+r=4$ is even.  
+Another example: $m=1$, $n=2$, $r=3$ gives $1+2+3=6$, which is even.
+
+\subsection*{(4) If $m+n+r$ is odd then at least one of $m,n,r$ is odd. \,\,\textit{True.}}
+Proof by contrapositive. Suppose none of $m,n,r$ is odd. Then all are even: $m=2a$, $n=2b$, $r=2c$. Then
+\[
+m+n+r = 2(a+b+c),
+\]
+which is even. So if the sum is odd, not all three can be even. That means at least one must be odd.
+
+\paragraph{Why I used these methods.}
+Parts (1) and (4) are easy to prove directly or directly with a contrapositive. Parts (2) and (3) are false, and counterexamples are the clearest way to show that.
+
+\end{document}
