@@ -41,14 +41,14 @@ In the rows where both premises are true, $P$ is also true.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|c|c||c|c||c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-$P$ & $Q$ & $\neg Q$ & $P\lor\neg Q$ & Both premises true? $\Rightarrow P$ \\
+$P$ & $Q$ & $\neg Q$ & $P \lor \neg Q$ & Premises $\Rightarrow P$ \\
 \hline
-T & T & F & T & Yes, $P$ is T \\
-F & T & F & F & No \\
-T & F & T & T & No \\
-F & F & T & T & No \\
+T & T & F & T & $P$ is T \\
+F & T & F & F & -- \\
+T & F & T & T & -- \\
+F & F & T & T & -- \\
 \hline
 \end{tabular}
 \end{center}
@@ -101,6 +101,9 @@ m+n+r = 2(a+b+c),
 which is even. So if the sum is odd, not all three can be even. That means at least one must be odd.
 
 \paragraph{Why I used these methods.}
-Parts (1) and (4) are easy to prove directly or directly with a contrapositive. Parts (2) and (3) are false, and counterexamples are the clearest way to show that.
+Parts (1) and (4) work cleanly with direct proofs or a contrapositive, so that was the natural choice. 
+Parts (2) and (3) are false, and the fastest way to show that is with counterexamples. 
+Trying to prove them directly quickly runs into contradictions with the definitions, so a specific example is enough to disprove the claim.
+
 
 \end{document}
