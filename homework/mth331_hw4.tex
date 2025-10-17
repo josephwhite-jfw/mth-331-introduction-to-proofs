@@ -2,7 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb}
 
-\title{MTH 331 - Homework 4 Draft}
+\title{MTH 331 -- Homework 4 Final Draft}
 \author{Joe White}
 \date{\today}
 
@@ -10,33 +10,41 @@
 \maketitle
 
 % =========================================================
-\section*{Exercise 1:}
+\section*{Exercise 1}
 
-Assume towards a contradiction, that $\sqrt{2}$ is rational. Then it can be written
+Assume, towards a contradiction, that $\sqrt{2}$ is rational. Then it can be written
 \[
 \sqrt{2} = \frac{a}{b}
 \]
-for some integers $a, b > 0$. We are not assuming $\tfrac{a}{b}$ is in lowest terms.
+for some integers $a,b>0$. We are not assuming $\tfrac{a}{b}$ is in lowest terms.
 
 Squaring both sides gives
 \[
 2 = \frac{a^2}{b^2} \quad \Rightarrow \quad a^2 = 2b^2.
 \]
-So $a^2$ is even, which means $a$ must be even. $a = 2k$ for some integer $k$. Substituting back,
+So $a^2$ is even, which means $a$ must be even. This is because if $a$ were odd, then $a^2$ would also be odd.  
+Hence $a=2k$ for some integer $k$. Substituting back,
 \[
 (2k)^2 = 2b^2 \quad \Rightarrow \quad 4k^2 = 2b^2 \quad \Rightarrow \quad b^2 = 2k^2.
 \]
-Thus $b^2$ is even, so $b$ is even as well. In other words, both $a$ and $b$ are divisible by $2$.  
+Thus $b^2$ is even, so $b$ is even as well. In other words, both $a$ and $b$ are divisible by $2$.
 
 Define $a_1 = a/2$ and $b_1 = b/2$. Then
 \[
 \sqrt{2} = \frac{a}{b} = \frac{a_1}{b_1}.
 \]
-The exact same reasoning shows $a_1, b_1$ are both even, and so on for $a_2, b_2, \dots$  
+Applying the same reasoning again, we find that $a_1$ and $b_1$ are also even.  
+We can therefore define $a_2 = a_1/2$ and $b_2 = b_1/2$, and in general,
+\[
+a_{n+1} = \frac{a_n}{2}, \qquad b_{n+1} = \frac{b_n}{2}.
+\]
+This process repeats indefinitely, producing an infinite sequence $a_0, a_1, a_2, \dots$ of positive integers, each smaller than the one before it.
 
-This leads to an infinite descent. That cannot happen, since by the well-ordering principle, the natural numbers must eventually reach a smallest element.  
+By the well-ordering principle, the set $\{a_0, a_1, a_2, \dots\}$ must have a least element.  
+However, it cannot, since each $a_{n+1}$ is less than $a_n$.  
+This contradiction shows that our original assumption was false.
 
-Therefore our assumption was wrong, and $\sqrt{2}$ is irrational.
+Therefore, $\sqrt{2}$ is irrational.
 
 \bigskip
 
@@ -48,37 +56,51 @@ We want to show
 (P \wedge Q \Rightarrow R) \;\equiv\; (P \wedge \sim R \Rightarrow \sim Q).
 \]
 
-Starting with $P \wedge Q \Rightarrow R$, we rewrite it as
+Starting with $P \wedge Q \Rightarrow R$, we can use the equivalence $A \Rightarrow B \equiv (\sim A \vee B)$:
 \[
-\sim (P \wedge Q) \vee R.
+P \wedge Q \Rightarrow R \;\equiv\; \sim(P \wedge Q) \vee R.
 \]
-This expands to
+This simplifies to
 \[
 (\sim P \vee \sim Q) \vee R.
 \]
-This is the same as: if $P$ is true and $R$ is false, then $Q$ must also be false. Which is equivalent to
+
+Now start with the second statement and apply the same steps:
 \[
-(P \wedge \sim R) \Rightarrow \sim Q.
+(P \wedge \sim R \Rightarrow \sim Q) \;\equiv\; \sim(P \wedge \sim R) \vee \sim Q.
 \]
-So the equivalence is proved.
+This becomes
+\[
+(\sim P \vee R) \vee \sim Q.
+\]
+Since both expressions simplify to a disjunction of the same three parts $(\sim P, \sim Q, R)$ in some order, they are logically equivalent.
+
+\bigskip
+\noindent This logical equivalence can be used to prove the following statements.
+
+\medskip
+\noindent\textbf{(a) Nonzero rational $\times$ irrational = irrational.}  
+Let $r$ be a nonzero rational and $s$ be irrational.  
+Suppose, for contradiction, that $rs$ is rational.  
+Then $s = (rs)/r$. Since a rational number divided by a nonzero rational number is rational, this would make $s$ rational — a contradiction.  
+Therefore the product must be irrational.
+
+\medskip
+\noindent\textbf{(b) Nonzero integer $\times$ noninteger = noninteger.}  
+This statement is false.  
+Example: $m=2$, $x=\tfrac{1}{2}$. Then $m$ is an integer, $x$ is noninteger, but $mx=1$ is an integer.  
+The step that fails here is the assumption that multiplying a noninteger by a nonzero integer always produces another noninteger.  
+This shows the conclusion of the logical equivalence does not hold for this case.
+
+\medskip
+\noindent\textbf{(c) Integer $+$ noninteger = noninteger.}  
+If $m$ is an integer and $x$ is noninteger, assume for contradiction that $m+x$ is an integer.  
+Then $x = (m+x) - m$ would also be an integer, contradicting the assumption that $x$ is noninteger.  
+So the sum of an integer and a noninteger is always noninteger.  
+For example, $1 + \tfrac{1}{2} = \tfrac{3}{2}$.
 
 \bigskip
 
-\noindent \textbf{(a) Nonzero rational $\times$ irrational = irrational.}  
-Suppose $r$ is a nonzero rational and $s$ is irrational. If $rs$ were rational, then $s=(rs)/r$ would also be rational, which is a contradiction. So the product must be irrational.
-
-\medskip
-\noindent \textbf{(b) Nonzero integer $\times$ noninteger = noninteger.}  
-This statement is false. Example: $m=2$, $x=\tfrac{1}{2}$. Then $m$ is an integer, $x$ is noninteger, but $mx = 1$ is an integer. Dividing an integer by another integer does not always give an integer.
-
-\medskip
-\noindent \textbf{(c) Integer $+$ noninteger = noninteger.}  
-If $m$ is an integer and $m+x$ were also an integer, then $x=(m+x)-m$ would be an integer, which contradicts the assumption that $x$ is noninteger. Therefore the sum of an integer and a noninteger is always noninteger. For instance, $1+ \tfrac{1}{2} = \tfrac{3}{2}$.
-
-\bigskip
-  
-(a) is true,  
-(b) is false (counterexample $2 \cdot \tfrac{1}{2} = 1$), 
-(c) is true.  
+(a) is true, (b) is false (counterexample $2 \cdot \tfrac{1}{2} = 1$), and (c) is true.
 
 \end{document}
