@@ -2,7 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb}
 
-\title{MTH 331 - Homework \#5 Draft}
+\title{MTH 331 - Homework \#5}
 \author{Joe White}
 \date{\today}
 
@@ -34,7 +34,7 @@ Let $b = a_1 a_2 \cdots a_n$, so that $p \mid b a_{n+1}$.
 By the base case, either $p \mid b$ or $p \mid a_{n+1}$.  
 If $p \mid a_{n+1}$, we are done.  
 If $p \mid b$, then by the inductive hypothesis $p$ divides one of $a_1, a_2, \ldots, a_n$.  
-Thus $p$ divides at least one of the $a_i$’s for $i = 1, 2, \ldots, n+1$.  
+Thus $p$ divides at least one of the $a_i$’s for $i = 1, 2, \ldots, $ $n+1$.  
 
 Therefore, by induction, the statement holds for all $n \in \mathbb{Z}^+$.  
 \hfill $\square$
@@ -56,13 +56,74 @@ a = p_1 p_2 \cdots p_r, \qquad b = q_1 q_2 \cdots q_s.
 \]
 Multiplying gives
 \[
-n_0 = ab = p_1 p_2 \cdots p_r q_1 q_2 \cdots q_s,
+n_0 = ab = p_1 p_2 \cdots p_r \, q_1 q_2 \cdots q_s,
 \]
 which is also a product of primes, again a contradiction.  
 Hence, every integer $n > 1$ can be expressed as a product of primes.  
 
 \textbf{Remark.}  
-This proof doesn’t work well by induction, since it relies on choosing the smallest counterexample and reasoning downward.  
-In contrast, induction proceeds forward from smaller to larger values, so the least-counterexample argument fits better here.
- 
+This result cannot be proved naturally by induction on $n$.  
+A proof by induction would require a relationship between the prime factorization of $n_0$ and that of $n_0 - 1$, since the inductive hypothesis would only apply to $n_0 - 1$.  
+However, consecutive integers do not have any simple relationship between their prime factorizations.  
+In the least-counterexample proof, when $n_0$ is composite, we instead rely on two smaller numbers $a,b < n_0$ with $n_0 = ab$.  
+Because the argument depends on such smaller factors rather than the immediately preceding integer, the inductive hypothesis would not be sufficient, and a least-counterexample argument is more appropriate here.
+
+% =========================================================
+\bigskip
+\section*{Exercise 1: Proofs by Least Counterexample}
+
+\subsection*{Sum of the First $n$ Odd Numbers}
+\textbf{Claim.} For all $n \in \mathbb{Z}^+$,
+\[
+1 + 3 + 5 + \cdots + (2n-1) = n^2.
+\]
+
+\textbf{Proof (least counterexample).}
+Assume the set
+\[
+S = \left\{ n \in \mathbb{Z}^+ \;:\; 1+3+\cdots+(2n-1) \neq n^2 \right\}
+\]
+is nonempty, and let $n_0$ be its least element.  
+Then the statement is true for every $1 \le k < n_0$, and in particular
+\[
+1+3+\cdots+\bigl(2(n_0-1)-1\bigr) = (n_0-1)^2.
+\]
+Add the next odd term $2n_0-1$ to both sides:
+\[
+1+3+\cdots+\bigl(2(n_0-1)-1\bigr) + (2n_0-1) 
+= (n_0-1)^2 + (2n_0-1) = n_0^2.
+\]
+But the left-hand side is exactly $1+3+\cdots+(2n_0-1)$, so the equality holds at $n_0$, contradicting the definition of $n_0$.  
+Therefore $S$ is empty and the formula holds for all $n \in \mathbb{Z}^+$. \hfill $\square$
+
+\subsection*{Sum of the First $n$ Integers}
+\textbf{Claim.} For all $n \in \mathbb{Z}^+$,
+\[
+1 + 2 + 3 + \cdots + n \;=\; \frac{n(n+1)}{2}.
+\]
+
+\textbf{Proof (least counterexample).}
+Assume the set
+\[
+T = \left\{ n \in \mathbb{Z}^+ \;:\; 1+2+\cdots+n \neq \frac{n(n+1)}{2} \right\}
+\]
+is nonempty, and let $n_0$ be its least element.  
+Then for every $1 \le k < n_0$,
+\[
+1+2+\cdots+k \;=\; \frac{k(k+1)}{2}.
+\]
+Applying this at $k = n_0-1$ and then adding $n_0$ to both sides gives
+\[
+1+2+\cdots+(n_0-1)+n_0 
+= \frac{(n_0-1)n_0}{2} + n_0
+= \frac{n_0(n_0-1+2)}{2}
+= \frac{n_0(n_0+1)}{2}.
+\]
+Hence the identity also holds at $n_0$, contradicting the choice of $n_0$.  
+Therefore $T$ is empty and the formula holds for all $n \in \mathbb{Z}^+$. \hfill $\square$
+
+\subsection*{Which Method Feels More Natural?}
+For these two summation formulas, induction feels more natural: each case at $n+1$ is obtained by adding the ``next term'' to the case at $n$.  
+Least counterexample works (and is formally equivalent to induction over $\mathbb{Z}^+$), but it is especially well-suited when a minimal failure leads you to factor or otherwise use \emph{some} smaller numbers (not just $n-1$), as in the existence of prime factorizations.
+
 \end{document}
