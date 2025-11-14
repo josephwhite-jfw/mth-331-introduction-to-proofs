@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+
+\title{MTH 331 -- Homework 7}
+\author{Joe White}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% =========================================================
+\section*{Exercise 1}
+
+Consider the relation $R$ on $\mathbb{Q}$ defined by
+\[
+R = \{(x,y) \in \mathbb{Q} \times \mathbb{Q} : x - y \in \mathbb{Z}\}.
+\]
+In other words, $xRy$ means that $x$ and $y$ differ by an integer.
+
+\subsection*{(a) $R$ is an equivalence relation}
+
+\textbf{Reflexive.}
+Take any $x \in \mathbb{Q}$. Then
+\[
+x - x = 0,
+\]
+and $0$ is an integer. So $(x,x) \in R$, and $R$ is reflexive.
+
+\medskip
+\textbf{Symmetric.}
+Now suppose $(x,y) \in R$. Then $x - y$ is an integer; write $k = x - y$. Then
+\[
+y - x = -(x - y) = -k.
+\]
+The integers are closed under taking negatives, so $-k \in \mathbb{Z}$, which means $y - x \in \mathbb{Z}$ and hence $(y,x) \in R$. So $R$ is symmetric.
+
+\medskip
+\textbf{Transitive.}
+Finally, suppose $(x,y) \in R$ and $(y,z) \in R$. Then $x - y$ and $y - z$ are both integers. Let $m = x - y$ and $n = y - z$. Then
+\[
+x - z = (x - y) + (y - z) = m + n.
+\]
+Since the integers are closed under addition, $m + n$ is an integer. So $x - z \in \mathbb{Z}$ and $(x,z) \in R$. This shows $R$ is transitive.
+
+\medskip
+$R$ is reflexive, symmetric, and transitive, so $R$ is an equivalence relation on $\mathbb{Q}$.
+
+\subsection*{(b) Infinitely many equivalence classes}
+
+For $x \in \mathbb{Q}$, the equivalence class of $x$ is
+\[
+[x] = \{ y \in \mathbb{Q} : x - y \in \mathbb{Z} \}.
+\]
+So $[x]$ consists of all rationals that differ from $x$ by an integer.
+
+To see that there are infinitely many different classes, it is convenient to pick one representative from the interval $[0,1)$ for each class. Let $r,s \in \mathbb{Q} \cap [0,1)$ with $r \neq s$. Then $r - s$ is a rational number with
+\[
+-1 < r - s < 1.
+\]
+The only integer between $-1$ and $1$ is $0$. Since $r \neq s$, we have $r - s \neq 0$, so $r - s \notin \mathbb{Z}$. That means $r$ and $s$ are not related, so $[r] \neq [s]$.
+
+There are infinitely many rational numbers in $[0,1)$, and each one gives a distinct equivalence class. Therefore $R$ has infinitely many equivalence classes.
+
+\subsection*{(c) Examples}
+
+Here are examples (or non-examples) for each type of partition.
+
+\medskip
+\textbf{I. A partition of $\mathbb{Z}$ (or $\mathbb{N}$) into finitely many infinite sets.}
+
+Fix an integer $k \ge 2$ and look at congruence classes mod $k$. On $\mathbb{Z}$, define
+\[
+A_j = \{ n \in \mathbb{Z} : n \equiv j \pmod{k} \},
+\quad j = 0,1,\dots,k-1.
+\]
+Each $A_j$ is infinite, the sets $A_j$ are pairwise disjoint, and together they cover all of $\mathbb{Z}$. So $\{A_0,\dots,A_{k-1}\}$ is a partition of $\mathbb{Z}$ into finitely many infinite sets.
+
+\medskip
+\textbf{II. A partition of $\mathbb{Z}$ (or $\mathbb{N}$) into infinitely many finite sets.}
+
+An easy example is the partition of $\mathbb{Z}$ into singletons:
+\[
+P = \{ \{n\} : n \in \mathbb{Z} \}.
+\]
+Each set $\{n\}$ has one element, so it is finite. The sets are pairwise disjoint and their union is all of $\mathbb{Z}$. There are infinitely many of them, so this gives a partition into infinitely many finite sets. (We could also group elements into pairs, e.g.\ $\{2n, 2n+1\}$, and get a similar example.)
+
+\medskip
+\textbf{III. A partition of $\mathbb{Z}$ (or $\mathbb{N}$) into finitely many finite sets.}
+
+This cannot happen. Suppose, for contradiction, that
+\[
+\mathbb{Z} = B_1 \cup \cdots \cup B_m
+\]
+for some finite collection of finite sets $B_1,\dots,B_m$. A finite union of finite sets is finite, so the right-hand side would be finite. But $\mathbb{Z}$ is infinite, so this is impossible. The same argument shows there is no such partition of $\mathbb{N}$ either.
+
+\medskip
+\textbf{IV. A partition of $\mathbb{N}$ (or $\mathbb{Z}$) into infinitely many infinite sets.}
+
+Here is a standard example on $\mathbb{N} = \{1,2,3,\dots\}$. Every positive integer can be written uniquely as
+\[
+n = 2^k m,
+\]
+where $k \ge 0$ and $m$ is odd. For each $k \ge 0$ define
+\[
+S_k = \{ n \in \mathbb{N} : n = 2^k m \text{ for some odd } m \}.
+\]
+Each $S_k$ is infinite (there are infinitely many odd numbers $m$), the sets $S_k$ are pairwise disjoint (the exponent $k$ of $2$ in this factorization is unique), and their union is all of $\mathbb{N}$. So $\{S_0, S_1, S_2, \dots\}$ is a partition of $\mathbb{N}$ into infinitely many infinite sets.
+
+% =========================================================
+\newpage
+\section*{Exercise 2}
+
+Recall that if $R$ is an equivalence relation on a set $A$, then the set of its equivalence classes
+\[
+P_R = \{ [a] : a \in A \}
+\]
+is a partition of $A$. Conversely, if $P$ is a partition of $A$, we can define a relation $R_P$ on $A$ by
+\[
+R_P = \bigcup_{B \in P} (B \times B).
+\]
+
+\subsection*{(a) The relation $R_P$ for a specific partition}
+
+Let $A = \{0,1,2,3,4,5\}$ and
+\[
+P = \big\{ \{0\}, \{1,2\}, \{3,4,5\} \big\}.
+\]
+By definition,
+\[
+R_P = \bigcup_{B \in P} (B \times B).
+\]
+We can write this out block by block:
+\[
+\{0\} \times \{0\} = \{(0,0)\},
+\]
+\[
+\{1,2\} \times \{1,2\} = \{(1,1), (1,2), (2,1), (2,2)\},
+\]
+\[
+\{3,4,5\} \times \{3,4,5\}
+= \{(3,3), (3,4), (3,5), (4,3), (4,4), (4,5), (5,3), (5,4), (5,5)\}.
+\]
+Putting these together,
+\[
+\begin{aligned}
+R_P = {} & \{(0,0)\} \\
+& \cup \{(1,1), (1,2), (2,1), (2,2)\} \\
+& \cup \{(3,3), (3,4), (3,5), (4,3), (4,4), (4,5), (5,3), (5,4), (5,5)\}.
+\end{aligned}
+\]
+
+So two elements of $A$ are related by $R_P$ exactly when they lie in the same part of the partition $P$. For instance, $1$ and $2$ are related, and $3$ and $5$ are related, but $0$ and $1$ are not, and $2$ and $3$ are not.
+
+\subsection*{(b) In general, $R_P$ is an equivalence relation}
+
+Now let $A$ be any set and let $P$ be a partition of $A$. This means:
+
+\begin{itemize}
+  \item Each $B \in P$ is a nonempty subset of $A$,
+  \item The sets in $P$ are pairwise disjoint, and
+  \item Every element of $A$ lies in at least one $B \in P$.
+\end{itemize}
+
+Define
+\[
+R_P = \bigcup_{B \in P} (B \times B).
+\]
+
+We check the three properties.
+
+\medskip
+\textbf{Reflexive.}
+Let $a \in A$. Since $P$ is a partition, $a$ belongs to some block $B \in P$. Then $(a,a) \in B \times B$, so $(a,a) \in R_P$.
+
+\medskip
+\textbf{Symmetric.}
+Suppose $(a,b) \in R_P$. Then $(a,b) \in B \times B$ for some $B \in P$, which means $a$ and $b$ are both in $B$. It follows that $(b,a) \in B \times B$ as well, so $(b,a) \in R_P$.
+
+\medskip
+\textbf{Transitive.}
+Suppose $(a,b) \in R_P$ and $(b,c) \in R_P$. Then there are blocks $B_1, B_2 \in P$ such that
+\[
+(a,b) \in B_1 \times B_1
+\quad \text{and} \quad
+(b,c) \in B_2 \times B_2.
+\]
+So $a,b \in B_1$ and $b,c \in B_2$. In particular, $b \in B_1 \cap B_2$. But different blocks in a partition are disjoint, so if $B_1 \cap B_2$ is nonempty, we must have $B_1 = B_2$. Call this common block $B$. Then $a,c \in B$, which means $(a,c) \in B \times B \subseteq R_P$.
+
+\medskip
+Therefore $R_P$ is reflexive, symmetric, and transitive, so it is an equivalence relation on $A$.
+
+\end{document}
