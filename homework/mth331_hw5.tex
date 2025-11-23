@@ -9,7 +9,6 @@
 \begin{document}
 \maketitle
 
-% =========================================================
 \section*{Exercise 2: Euclid’s Lemma and Prime Factorization}
 
 \subsection*{Euclid’s Lemma for Finite Products}
@@ -21,109 +20,148 @@ p \mid a_1 a_2 \cdots a_n,
 \]
 then $p$ divides at least one of the $a_i$.
 
-\textbf{Proof.}  
+\textbf{Proof.}
 We prove this by induction on $n$.
 
-\emph{Base case ($n=2$):}  
+\emph{Base case ($n=2$):}
 This is the usual Euclid’s Lemma: if $p \mid a_1 a_2$, then $p \mid a_1$ or $p \mid a_2$.
 
-\emph{Inductive step:}  
-Assume the result holds for a product of $n$ factors.  
-Now suppose $p \mid a_1 a_2 \cdots a_{n+1}$.  
-Let $b = a_1 a_2 \cdots a_n$, so that $p \mid b a_{n+1}$.  
-By the base case, either $p \mid b$ or $p \mid a_{n+1}$.  
-If $p \mid a_{n+1}$, we are done.  
-If $p \mid b$, then by the inductive hypothesis $p$ divides one of $a_1, a_2, \ldots, a_n$.  
-Thus $p$ divides at least one of the $a_i$’s for $i = 1, 2, \ldots, $ $n+1$.  
+\emph{Inductive step:}
+Assume the result holds for a product of $n$ factors.
+Now suppose $p \mid a_1 a_2 \cdots a_{n+1}$.
+Let $b = a_1 a_2 \cdots a_n$, so that $p \mid b a_{n+1}$.
+By the base case, either $p \mid b$ or $p \mid a_{n+1}$.
+If $p \mid a_{n+1}$, we are done.
+If $p \mid b$, then by the inductive hypothesis $p$ divides one of $a_1, a_2, \ldots, a_n$.
+Thus $p$ divides at least one of the $a_i$ for $i = 1, \ldots, n+1$.
 
-Therefore, by induction, the statement holds for all $n \in \mathbb{Z}^+$.  
-\hfill $\square$
+Therefore the statement holds for all $n \in \mathbb{Z}^+$.
 
 \bigskip
 \subsection*{Existence of Prime Factorizations}
 
-\textbf{Statement.}  
+\textbf{Statement.}
 Every integer $n > 1$ can be written as a product of primes.
 
-\textbf{Proof (by least counterexample).}  
-Suppose not, and let $n_0 > 1$ be the smallest integer that cannot be written as a product of primes.  
+\textbf{Proof (by least counterexample).}
+Suppose not, and let $n_0 > 1$ be the smallest integer that cannot be written as a product of primes.
 
-If $n_0$ is prime, then it already has a prime factorization, a contradiction.  
-If $n_0$ is composite, then $n_0 = ab$ for some integers $a,b$ with $1 < a,b < n_0$.  
+If $n_0$ is prime, then it already has a prime factorization, a contradiction.
+If $n_0$ is composite, then $n_0 = ab$ for some integers $a,b$ with $1 < a,b < n_0$.
 By minimality of $n_0$, both $a$ and $b$ can be written as products of primes:
 \[
 a = p_1 p_2 \cdots p_r, \qquad b = q_1 q_2 \cdots q_s.
 \]
 Multiplying gives
 \[
-n_0 = ab = p_1 p_2 \cdots p_r \, q_1 q_2 \cdots q_s,
+n_0 = ab = p_1 p_2 \cdots p_r\, q_1 q_2 \cdots q_s,
 \]
-which is also a product of primes, again a contradiction.  
-Hence, every integer $n > 1$ can be expressed as a product of primes.  
+which is again a product of primes, contradiction.  
+Hence every integer $n > 1$ can be expressed as a product of primes.
 
-\textbf{Remark.}  
-This result cannot be proved naturally by induction on $n$.  
-A proof by induction would require a relationship between the prime factorization of $n_0$ and that of $n_0 - 1$, since the inductive hypothesis would only apply to $n_0 - 1$.  
-However, consecutive integers do not have any simple relationship between their prime factorizations.  
-In the least-counterexample proof, when $n_0$ is composite, we instead rely on two smaller numbers $a,b < n_0$ with $n_0 = ab$.  
-Because the argument depends on such smaller factors rather than the immediately preceding integer, the inductive hypothesis would not be sufficient, and a least-counterexample argument is more appropriate here.
+\textbf{Remark.}
+A proof by induction would require a relationship between the factorization of $n_0$ and that of $n_0 - 1$,
+since the inductive hypothesis would only apply to $n_0 - 1$.
+However, consecutive integers do not have any simple relationship between their prime factorizations.
+In the argument above, when $n_0$ is composite, we instead use two arbitrary smaller integers $a,b < n_0$ with $n_0 = ab$.
+Since such information does not follow from the case $n_0 - 1$, an inductive hypothesis would not be strong enough.
+A least-counterexample argument is therefore more appropriate here.
 
 % =========================================================
+% =========================================================
 \bigskip
-\section*{Exercise 1: Proofs by Least Counterexample}
+\section*{Exercise 3:}
 
-\subsection*{Sum of the First $n$ Odd Numbers}
-\textbf{Claim.} For all $n \in \mathbb{Z}^+$,
-\[
-1 + 3 + 5 + \cdots + (2n-1) = n^2.
-\]
+Assume all $a_i$ and $a$ are real numbers, and any bases
+appearing in exponents are positive to avoid complex number.
 
-\textbf{Proof (least counterexample).}
-Assume the set
-\[
-S = \left\{ n \in \mathbb{Z}^+ \;:\; 1+3+\cdots+(2n-1) \neq n^2 \right\}
-\]
-is nonempty, and let $n_0$ be its least element.  
-Then the statement is true for every $1 \le k < n_0$, and in particular
-\[
-1+3+\cdots+\bigl(2(n_0-1)-1\bigr) = (n_0-1)^2.
-\]
-Add the next odd term $2n_0-1$ to both sides:
-\[
-1+3+\cdots+\bigl(2(n_0-1)-1\bigr) + (2n_0-1) 
-= (n_0-1)^2 + (2n_0-1) = n_0^2.
-\]
-But the left-hand side is exactly $1+3+\cdots+(2n_0-1)$, so the equality holds at $n_0$, contradicting the definition of $n_0$.  
-Therefore $S$ is empty and the formula holds for all $n \in \mathbb{Z}^+$. \hfill $\square$
+\subsection*{Part I.}
 
-\subsection*{Sum of the First $n$ Integers}
-\textbf{Claim.} For all $n \in \mathbb{Z}^+$,
+\textbf{Claim.}
+For all $n \in \mathbb{Z}^+$,
 \[
-1 + 2 + 3 + \cdots + n \;=\; \frac{n(n+1)}{2}.
+b(a_1 + a_2 + \cdots + a_n)
+= ba_1 + ba_2 + \cdots + ba_n.
 \]
 
-\textbf{Proof (least counterexample).}
-Assume the set
+\textbf{Proof.}
+This can be proved with induction.
+\emph{Base case ($n=1$):}
+When the sum has only one term, the expression becomes
 \[
-T = \left\{ n \in \mathbb{Z}^+ \;:\; 1+2+\cdots+n \neq \frac{n(n+1)}{2} \right\}
+b(a_1) = ba_1,
 \]
-is nonempty, and let $n_0$ be its least element.  
-Then for every $1 \le k < n_0$,
-\[
-1+2+\cdots+k \;=\; \frac{k(k+1)}{2}.
-\]
-Applying this at $k = n_0-1$ and then adding $n_0$ to both sides gives
-\[
-1+2+\cdots+(n_0-1)+n_0 
-= \frac{(n_0-1)n_0}{2} + n_0
-= \frac{n_0(n_0-1+2)}{2}
-= \frac{n_0(n_0+1)}{2}.
-\]
-Hence the identity also holds at $n_0$, contradicting the choice of $n_0$.  
-Therefore $T$ is empty and the formula holds for all $n \in \mathbb{Z}^+$. \hfill $\square$
+which is true by the ordinary distributive law.  
+Thus the statement holds for $n=1$.
 
-\subsection*{Which Method Feels More Natural?}
-For these two summation formulas, induction feels more natural: each case at $n+1$ is obtained by adding the ``next term'' to the case at $n$.  
-Least counterexample works (and is formally equivalent to induction over $\mathbb{Z}^+$), but it is especially well-suited when a minimal failure leads you to factor or otherwise use \emph{some} smaller numbers (not just $n-1$), as in the existence of prime factorizations.
+\emph{Inductive step:}
+Assume that the distributive property holds for a sum of $n$ terms; that is,
+\[
+b(a_1 + \cdots + a_n) = ba_1 + \cdots + ba_n.
+\]
+We must show that it then holds for a sum of $n+1$ terms.  
+Starting with the longer sum,
+\[
+b(a_1 + \cdots + a_n + a_{n+1}),
+\]
+we group the first $n$ terms together:
+\[
+b\bigl((a_1 + \cdots + a_n) + a_{n+1}\bigr).
+\]
+Using the distributive law,
+\[
+b(a_1 + \cdots + a_n) + ba_{n+1}.
+\]
+Now we apply the inductive hypothesis to the first part:
+\[
+(ba_1 + \cdots + ba_n) + ba_{n+1},
+\]
+which is exactly what we want for $n+1$ terms.
+
+Therefore the statement holds for all $n \in \mathbb{Z}^+$ by induction.
+
+\subsection*{Part II.}
+
+\textbf{Claim.}
+For all $n \in \mathbb{Z}^+$,
+\[
+(a_1 a_2 \cdots a_n)^b = a_1^b a_2^b \cdots a_n^b.
+\]
+
+\textbf{Proof.}
+This can also be proved by induction.
+
+\emph{Base case ($n=1$):}
+When there is only one factor,
+\[
+(a_1)^b = a_1^b,
+\]
+which is true by definition.
+
+\emph{Inductive step:}
+Assume the identity holds for a product of $n$ terms:
+\[
+(a_1 \cdots a_n)^b = a_1^b \cdots a_n^b.
+\]
+Want to show that it then holds for $n+1$ terms.  
+Consider the product with one additional factor:
+\[
+(a_1 a_2 \cdots a_n a_{n+1})^b.
+\]
+Group first $n$ terms together:
+\[
+\bigl((a_1 \cdots a_n)\, a_{n+1}\bigr)^b.
+\]
+Using the rule $(xy)^b = x^b y^b$ for positive $x,y$,
+\[
+(a_1 \cdots a_n)^b \, a_{n+1}^b.
+\]
+Finally, apply the inductive hypothesis to the first factor:
+\[
+(a_1^b \cdots a_n^b)\, a_{n+1}^b,
+\]
+which is the desired expression.
+
+Thus, by induction, the identity holds for all $n \in \mathbb{Z}^+$.
 
 \end{document}
