@@ -97,13 +97,17 @@ for some finite collection of finite sets $B_1,\dots,B_m$. A finite union of fin
 \medskip
 \textbf{IV. A partition of $\mathbb{N}$ (or $\mathbb{Z}$) into infinitely many infinite sets.}
 
-Here is a standard example on $\mathbb{N} = \{1,2,3,\dots\}$. Every positive integer can be written uniquely as
+Here is a standard example on $\mathbb{N} = \{0,1,2,3,\dots\}$. Every natural number $n \ge 1$ can be written uniquely as
 \[
 n = 2^k m,
 \]
 where $k \ge 0$ and $m$ is odd. For each $k \ge 0$ define
 \[
-S_k = \{ n \in \mathbb{N} : n = 2^k m \text{ for some odd } m \}.
+S_k = \{ n \in \mathbb{N} : n > 0 \text{ and } n = 2^k m \text{ for some odd } m \}.
+\]
+Finally, to incorporate $0$, we simply include it in one of the sets, for example by redefining
+\[
+S_0 := S_0 \cup \{0\}.
 \]
 Each $S_k$ is infinite (there are infinitely many odd numbers $m$), the sets $S_k$ are pairwise disjoint (the exponent $k$ of $2$ in this factorization is unique), and their union is all of $\mathbb{N}$. So $\{S_0, S_1, S_2, \dots\}$ is a partition of $\mathbb{N}$ into infinitely many infinite sets.
 
@@ -141,16 +145,12 @@ We can write this out block by block:
 \{3,4,5\} \times \{3,4,5\}
 = \{(3,3), (3,4), (3,5), (4,3), (4,4), (4,5), (5,3), (5,4), (5,5)\}.
 \]
-Putting these together,
+So, as a single set,
 \[
-\begin{aligned}
-R_P = {} & \{(0,0)\} \\
-& \cup \{(1,1), (1,2), (2,1), (2,2)\} \\
-& \cup \{(3,3), (3,4), (3,5), (4,3), (4,4), (4,5), (5,3), (5,4), (5,5)\}.
-\end{aligned}
+R_P = \{(0,0), (1,1), (1,2), (2,1), (2,2), (3,3), (3,4), (3,5), (4,3), (4,4), (4,5), (5,3), (5,4), (5,5)\}.
 \]
 
-So two elements of $A$ are related by $R_P$ exactly when they lie in the same part of the partition $P$. For instance, $1$ and $2$ are related, and $3$ and $5$ are related, but $0$ and $1$ are not, and $2$ and $3$ are not.
+Two elements of $A$ are related by $R_P$ exactly when they lie in the same part of the partition $P$. For instance, $1$ and $2$ are related, and $3$ and $5$ are related, but $0$ and $1$ are not, and $2$ and $3$ are not.
 
 \subsection*{(b) In general, $R_P$ is an equivalence relation}
 
